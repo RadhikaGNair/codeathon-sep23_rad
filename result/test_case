@@ -1,0 +1,30 @@
+import unittest
+from copilot_test import sort_string_by_frequency
+
+class TestSortStringByFrequency(unittest.TestCase):
+    def test_sort_string_by_frequency_empty_string(self):
+        self.assertEqual(sort_string_by_frequency(''), '')
+
+    def test_sort_string_by_frequency_single_character(self):
+        self.assertEqual(sort_string_by_frequency('a'), 'a')
+
+    def test_sort_string_by_frequency_two_characters(self):
+        self.assertEqual(sort_string_by_frequency('ab'), 'ab')
+
+    def test_sort_string_by_frequency_repeated_characters(self):
+        self.assertEqual(sort_string_by_frequency('aaabbbccc'), 'aaabbbccc')
+
+    def test_sort_string_by_frequency_example_1(self):
+        self.assertEqual(sort_string_by_frequency('hello world'), 'llloohe wrd')
+
+    def test_sort_string_by_frequency_example_2(self):
+        self.assertEqual(sort_string_by_frequency('tree'), 'eetr')
+
+    def test_sort_string_by_frequency_mixed_case(self):
+        self.assertEqual(sort_string_by_frequency('aAAbBcC'), 'AAaBBbCCc')
+
+    def test_sort_string_by_frequency_special_characters(self):
+        self.assertEqual(sort_string_by_frequency('!@#$%^&*()'), '!@#$%^&*()')
+
+if __name__ == '__main__':
+    unittest.main()

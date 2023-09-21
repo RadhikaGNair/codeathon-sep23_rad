@@ -1,0 +1,27 @@
+import unittest
+from copilot_test import find_max_profit
+
+class TestFindMaxProfit(unittest.TestCase):
+    def test_find_max_profit_empty_list(self):
+        self.assertEqual(find_max_profit([]), -1)
+
+    def test_find_max_profit_single_element_list(self):
+        self.assertEqual(find_max_profit([10]), -1)
+
+    def test_find_max_profit_two_element_list(self):
+        self.assertEqual(find_max_profit([10, 20]), 'Buy on day 1 at price 10\nSell on day 2 at price 20\nMax profit: 10')
+
+    def test_find_max_profit_max_at_end(self):
+        self.assertEqual(find_max_profit([10, 20, 30, 40]), 'Buy on day 1 at price 10\nSell on day 4 at price 40\nMax profit: 30')
+
+    def test_find_max_profit_max_at_beginning(self):
+        self.assertEqual(find_max_profit([40, 30, 20, 10]), -1)
+
+    def test_find_max_profit_max_in_middle(self):
+        self.assertEqual(find_max_profit([10, 20, 30, 20, 10]), 'Buy on day 1 at price 10\nSell on day 3 at price 30\nMax profit: 20')
+
+    def test_find_max_profit_duplicate_prices(self):
+        self.assertEqual(find_max_profit([10, 20, 20, 30]), 'Buy on day 1 at price 10\nSell on day 4 at price 30\nMax profit: 20')
+
+if __name__ == '__main__':
+    unittest.main()
